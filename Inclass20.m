@@ -31,7 +31,7 @@ r2adj=[fitmetric.adjrsquare] %good
 % 3. Now treat the exponent as a free parameter and perform the fit again,
 % that is fit to the model y = V*x^n/(K^n+x^n)
 
-MMm='(V*x^1)/(K^1+x^1)';
+MMm='(V*x^n)/(K^n+x^n)';
 fitmodel=fittype(MMm);
 
 [fitout]=fit(xx',yy',fitmodel,'Lower',[0, 0, 0], 'Upper',[20, 20, 20]); %without the fixes it can't solve it
