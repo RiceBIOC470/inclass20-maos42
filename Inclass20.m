@@ -11,7 +11,7 @@
 MMm='(V*x)/(K+x)';
 fitmodel=fittype(MMm);
 
-[fitout,fitmetric]=fit(xx',yy',fitmodel);
+[fitout,fitmetric]=fit(xx',yy',fitmodel, 'Lower',[0, 0, 0]); %we know that the values have to be positive
 plot(fitout,xx',yy');
 r2=[fitmetric.rsquare] %good
 r2adj=[fitmetric.adjrsquare] %good
@@ -23,7 +23,7 @@ r2adj=[fitmetric.adjrsquare] %good
 MMm='(V*x^2)/(K^2+x^2)';
 fitmodel=fittype(MMm);
 
-[fitout]=fit(xx',yy',fitmodel);
+[fitout]=fit(xx',yy',fitmodel,'Lower',[0, 0, 0]);
 plot(fitout,xx',yy');
 r2=[fitmetric.rsquare] %good
 r2adj=[fitmetric.adjrsquare] %good
@@ -43,10 +43,10 @@ r2adj=[fitmetric.adjrsquare] %good
 % n to either 1 or 2.
 
 %when n=1
-MMm='(V*x^1)/(K^1+x^1)';
+MMm='(V*x^1)/(K^1+x^1)'; %this is the same as 1 
 fitmodel=fittype(MMm);
 
-[fitout,fitmetric]=fit(xx',yy',fitmodel);
+[fitout,fitmetric]=fit(xx',yy',fitmodel,'Lower',[0, 0, 0]);
 plot(fitout,xx',yy');
 r2=[fitmetric.rsquare] %good
 r2adj=[fitmetric.adjrsquare] %good
@@ -58,7 +58,7 @@ r2adj=[fitmetric.adjrsquare] %good
 MMm='(V*x^2)/(K^2+x^2)';
 fitmodel=fittype(MMm);
 
-[fitout,fitmetric]=fit(xx',yy',fitmodel);
+[fitout,fitmetric]=fit(xx',yy',fitmodel,'Lower',[0, 0, 0]);
 plot(fitout,xx',yy');
 r2=[fitmetric.rsquare] %good
 r2adj=[fitmetric.adjrsquare] %good
